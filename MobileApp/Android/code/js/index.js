@@ -64,6 +64,7 @@ var app = {
 app.initialize();
 function DeepLinkHandler(data)
 {
+	 localStorage.clear();
     if (data) {
      // alert('DeeplinkInitialize: ' + JSON.stringify(data)); 
 		// alert(data.param); 
@@ -94,6 +95,7 @@ function DeepLinkHandler(data)
 
 function NonBranchLinkHandler(data)
 {
+	 localStorage.clear();
     if (data) {
 		window.location = "home.html";
         //alert('Non-branch link found: ' + JSON.stringify(data));
@@ -167,7 +169,8 @@ function InitSession()
 					$('#myModal').modal('show');
 				 $('#LastHotel').attr("href","directories.html?id="+Lid)
 			 }else{
-				 window.location = "home.html";
+				  
+				  window.location = "home.html";
 			 } 
 		/* window.location = "home.html"; */
         //alert('Error: ' + JSON.stringify(err));

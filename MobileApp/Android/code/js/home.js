@@ -49,7 +49,7 @@
 	   Parse.initialize(PARSE_APP,PARSE_JS);
 		 var SearchlocItem = Parse.Object.extend("Location");
          var SearchlocQuery = new Parse.Query(SearchlocItem);
-		 SearchlocQuery.equalTo("Status",true);
+		 SearchlocQuery.equalTo("ActiveAccount",true);
 		 SearchlocQuery.find().then(function(result1){
 	//console.log(result1);
 	 for(var i=0;i<result1.length;i++){
@@ -176,7 +176,7 @@
 			 
 			     
 		}else{ */
-		var options = { enableHighAccuracy: true , timeout: 2000 };
+		var options = { enableHighAccuracy: true , timeout: 500 };
 			  if ( navigator.geolocation )
 				{
 					//navigator.geolocation.getCurrentPosition(UserLocation);
@@ -247,7 +247,7 @@
 		  var loc = new Parse.GeoPoint(latitude,longitude);
 		 var locItem = Parse.Object.extend("Location");
          var locQuery = new Parse.Query(locItem);
-		 locQuery.equalTo("Status",true);
+		 locQuery.equalTo("ActiveAccount",true);
 		 locQuery.withinMiles('Geopoints',loc,5);
 		 locQuery.limit(1000);
 		 locQuery.find().then(function(result){
@@ -339,9 +339,9 @@
 				  }
 			  
 			 listdir = "<div class='row location5' ><div class='col s3' ><div class='logo-img'><img  class='locationimg'style="+locationimg[i]+" src='"+locationurl[i]+"'/></div></div><div class='col s7' ><p > <b style='font-size:13px;' > "+locationtitle[i]+" </br> </p>"+
-			   "<span style="+add1Style[i]+">"+locationaddress1[i]+"</span><br style="+add1Style[i]+">"+
+			   "<span style="+add1Style[i]+">"+locationaddress1[i]+"</span><br style="+add2Style[i]+">"+
 			   "<span style="+add2Style[i]+">"+locationaddress2[i]+"</span><br style="+add2Style[i]+">"+
-			   "<span style="+locationst[i]+"> "+locationstreet[i]+"</span><span style='"+locationgap[i]+"'>, </span><span style="+locationtwn[i]+">"+locationtown[i]+"</span><br style="+locationbr[i]+"><span>"+locationzip[i]+"</span><br style="+locationzipcode[i]+" >"+
+			   "<span style="+locationst[i]+"> "+locationstreet[i]+"</span><span style='"+locationgap[i]+"'>, </span><span style="+locationtwn[i]+">"+locationtown[i]+"</span></br style="+locationbr[i]+"><span>"+locationzip[i]+"</span><br style="+locationctry[i]+" >"+
 			   "<span style="+locationctry[i]+">"+locationCountry[i]+"</span></div>"+
 				"<div class='col s2'><a href='directories.html?id="+locationId[i]+"'> <i class='small material-icons'>input</i> </a></div>"+
 				"</div>";
@@ -460,9 +460,9 @@
 			  
 			//  console.log(locationId);
 			   listdir = "<div class='row location5' ><div class='col s3' ><div class='logo-img'><img  class='locationimg'style="+locationimg[i]+" src='"+locationurl[i]+"'/></div></div><div class='col s7' ><p > <b style='font-size:13px;' > "+locationtitle[i]+" </br> </p>"+
-			   "<span style="+add1Style[i]+">"+locationaddress1[i]+"</span><br style="+add1Style[i]+">"+
+			   "<span style="+add1Style[i]+">"+locationaddress1[i]+"</span><br style="+add2Style[i]+">"+
 			   "<span style="+add2Style[i]+">"+locationaddress2[i]+"</span><br style="+add2Style[i]+">"+
-			   "<span style="+locationst[i]+"> "+locationstreet[i]+"</span><span style='"+locationgap[i]+"'>, </span><span style="+locationtwn[i]+">"+locationtown[i]+"</span><br style="+locationbr[i]+"><span>"+locationzip[i]+"</span><br style="+locationzipcode[i]+" >"+
+			   "<span style="+locationst[i]+"> "+locationstreet[i]+"</span><span style='"+locationgap[i]+"'>, </span><span style="+locationtwn[i]+">"+locationtown[i]+"</span></br style="+locationbr[i]+"><span>"+locationzip[i]+"</span><br style="+locationctry[i]+" >"+
 			   "<span style="+locationctry[i]+">"+locationCountry[i]+"</span></div>"+
 				"<div class='col s2'><a href='directories.html?id="+locationId[i]+"'> <i class='small material-icons'>input</i> </a></div>"+
 				"</div>";

@@ -27,10 +27,20 @@
 			
 	/* 	if(navigator.onLine){  */
 			  if((hRes!=null)&&(hRes.length>0)&&(hRes[0].objectId==id)){
-			//localstorage hotel
+				   
+					  
+					   				  //localstorage hotel
 			localStorage.removeItem('SearchitemIndex')
 				showHotel();
+					   
+				  
+			
+			
+					  
+				 
+			
 			}else{
+				 
 				
 				localStorage.clear();
 						 ImgCache.init(function() {
@@ -53,9 +63,21 @@
 					   var locQuery = new Parse.Query(locItem);
 					   locQuery.equalTo('objectId',id);
 					   locQuery.find().then(function(result){
-						 
+						   var ActiveAccount1=result[0].get("ActiveAccount");
+						
+						   if(ActiveAccount1==false)
+						   {
+							  localStorage.clear();
+							 
+							 window.open("notFound.html","_self")
+							   
+						   }
+						   else{
+							    
 					        if(result[0]=="undefined"||result[0]==null)
 								  {
+									
+									 
 									//getting template
 									var tempItem = Parse.Object.extend("Template");
 									var tempQuery = new Parse.Query(tempItem);
@@ -167,6 +189,8 @@
 									
 									BrandStyleFun();
 							}
+							
+					   }
 				          })
 						  
 					 }
@@ -655,7 +679,8 @@
 			var emptyImg=new Array();
 			var dirid=new Array();
 			var dirlogoDis=new Array();
-			var  dirbutton=new Array();
+			var 
+			dirbutton=new Array();
 			var dirurl=new Array();
 			var dirLocationId=new Array();
 			var titletotval="";
@@ -944,6 +969,7 @@
   }	
 
   $('#search').click(function(){
+	  alert("done");
 		 var textres = $('#textbox').val();
 		 var res = new RegExp(textres,"i");
 		 $("#titledir").empty();
