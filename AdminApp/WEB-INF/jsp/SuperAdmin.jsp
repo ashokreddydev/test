@@ -3018,7 +3018,8 @@ $(document).ready(function () {
     margin-top: -21px;
 ">
       <ul class="tabs tabs-left"style="margin-top: 45px;">
-        <li class="tab col s12"><a class="active" href="#test111"style="color:white !important">Hotel Details</a></li>
+        <li class="tab col s12"><a class="active" title="Account Management" href="#testAccount"style="color:white !important"> Account Management </a></li>
+        <li class="tab col s12"><a href="#test111"style="color:white !important">Hotel Details</a></li>
        <!--  <li class="tab col s12"><a href="#test22"style="color:white !important">Group Site ID</a></li> -->
         <li class="tab col s12"><a href="#test33"style="color:white !important">Address</a></li>
         <li class="tab col s12"><a href="#test44"style="color:white !important" >Content</a></li> 
@@ -3031,6 +3032,107 @@ $(document).ready(function () {
  -->       
       </ul>
     </div>
+    
+    
+    <div id="testAccount" class="col s10"style="margin-top: 40px;">
+    	
+    	<div class="row">
+    	
+    		<div class="input-field col s3">
+				<input type="text" style="font-weight: normal; font-size: 14px"  id=""  value="${locObjForEditLocation.objectId }" class="" name="" disabled> <label style="font-weight: normal; font-size: 14px;margin-left:-7px;" class="active">Directory ID</label>
+			</div>
+												
+ 	        <div class="input-field col s3">
+				<input type="text" style="font-weight: normal; font-size: 14px"  id=""  value="${locObjForEditLocation.name}" class="" name="" disabled> <label style="font-weight: normal; font-size: 14px;margin-left:-7px;" class="active">Directory Name</label>
+			</div>
+			
+			<div class="input-field col s3">
+				<input type="text" style="font-weight: normal; font-size: 14px"  id=""  value="${locObjForEditLocation.templateId}" class="" name="" disabled> <label style="font-weight: normal; font-size: 14px;margin-left:-7px;" class="active">Source Template ID</label>
+			</div>
+												
+ 	        <div class="input-field col s3">
+				<input type="text" style="font-weight: normal; font-size: 14px"  id=""  value="${locObjForEditLocation.templateName}" class="" name="" disabled> <label style="font-weight: normal; font-size: 14px;margin-left:-7px;" class="active">Source Template Name</label>
+			</div>
+    	
+    	</div>
+    	
+    	<div class="row">
+    	
+    		<div class="input-field col s3">
+				<input type="text" style="font-weight: normal; font-size: 14px"  id=""  value="${locObjForEditLocation.createdDate}" class="" name="" disabled> <label style="font-weight: normal; font-size: 14px;margin-left:-7px;" class="active">Directory Creation Date</label>
+			</div>
+												
+ 	        <div class="input-field col s3">
+				<input type="text" style="font-weight: normal; font-size: 14px"  id=""  value="${locObjForEditLocation.updatedDate}" class="" name="" disabled> <label style="font-weight: normal; font-size: 14px;margin-left:-7px;" class="active">Directory Last Modified Date</label>
+			</div>
+			
+			<div class="input-field col s3">
+				<label style="font-weight: normal; font-size: 14px;margin-left:-7px;" class="active">Billing Cycle</label>
+				<select name="hotelBillingCycle" id="hotelBillingCycle" class="browser-default">
+				<c:if test="${locObjForEditLocation.hotelBillingCycle ne null}">
+					<option value="${locObjForEditLocation.hotelBillingCycle}">${locObjForEditLocation.hotelBillingCycle}</option>
+				</c:if>
+					<option value="Monthly">Monthly</option>
+					<option value="Quarterly">Quarterly</option>
+					<option value="Annual">Annual</option>
+				</select>
+			</div>
+			
+			<div class="input-field col s3">
+				<input type="text" style="font-weight: normal; font-size: 14px"  id="hotelBillingRate"  value="${locObjForEditLocation.hotelBillingRate}" class="hotelBillingRate" name="hotelBillingRate"> <label style="font-weight: normal; font-size: 14px;margin-left:-7px;" class="active">Billing Rate</label>
+			</div>
+    	
+    	</div>
+    	
+    	<div class="row">
+    	
+    		<div class="input-field col s3">
+				<input type="text" style="font-weight: normal; font-size: 14px"  id=""  value="" class="" name=""> <label style="font-weight: normal; font-size: 14px;margin-left:-7px;" class="active">Payments System ID</label>
+			</div>
+												
+ 	        <div class="input-field col s3">
+				<input type="text" style="font-weight: normal; font-size: 14px"  id=""  value="" class="" name=""> <label style="font-weight: normal; font-size: 14px;margin-left:-7px;" class="active">Account Paid Through Date</label>
+			</div>		
+    	
+    	</div>
+    	
+    	<div class="row">  
+    	
+    		<div class="input-field col s12">
+				<input type="text" style="font-weight: normal; font-size: 14px"  id="hotelPaymentConcat"  value="" class="" name="hotelPaymentConcat"> <label style="font-weight: normal; font-size: 14px;margin-left:-7px;" class="active">Payment Contact</label>
+			</div>
+    	
+    	</div>
+    	
+    	<div class="row">  
+    	
+    		<div class="input-field col s12">
+				<input type="text" style="font-weight: normal; font-size: 14px"  id="hotelNotes"  value="" class="" name="hotelNotes"> <label style="font-weight: normal; font-size: 14px;margin-left:-7px;" class="active">Notes</label>
+			</div>
+    	
+    	</div>
+    	
+    	<div class="row">  
+    	
+    		<c:if test="${locObjForEditLocation.hotelActiveAccount}">			
+				<input type="checkbox" id="checkboxForAccountActivation" value="checkboxForAccountActivation" name="hotelActiveAccount" style="display:none" checked/>
+			</c:if>
+			
+			<c:if test="${!locObjForEditLocation.hotelActiveAccount}">			
+				<input type="checkbox" id="checkboxForAccountActivation" value="checkboxForAccountActivation" name="hotelActiveAccount" style="display:none" />
+			</c:if>		
+    		
+            <label for="checkboxForAccountActivation" style="font-size:14px;padding-left:35px !important;">Active Account</label>
+    	
+    	</div>
+    	
+    	
+    	
+    	
+    		
+    </div>
+    
+    
     <div id="test111" class="col s10"style="margin-top: 40px;">
     	<div class="row">
 												<div class="input-field col s3" style="display: none">
@@ -3150,7 +3252,7 @@ $(document).ready(function () {
 		</div>
 		
 		
-		<div row>
+		<div >
 		
 												<div class="input-field col s3" style="margin-left: -16px;">
 													<input type="text" style="font-weight: normal; font-size: 14px" required=""  id="dirCaption" name="siteIdName" value="${locObjForEditLocation.siteId}"> <label style="font-weight: normal; font-size: 14px;margin-left:-7px;" class="active">Group Site ID</label>
